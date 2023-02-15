@@ -1,0 +1,38 @@
+# Idea
+.idea
+*.iml
+*/out
+*.log
+
+#Properties files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.qz
+*.rar
+
+# VS Code
+.classpath
+.project
+.settings
+.vscode
+bin
+
+# Gradle
+.gradle
+.gradle/
+build
+build/
+# Project
+local.properties
+local
+.allure/
+.allure
+bin/
+out/
+logs/
+target/
+/gradlew
+/gradlew.bat
