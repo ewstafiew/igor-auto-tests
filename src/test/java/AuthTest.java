@@ -1,11 +1,10 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-
 import java.util.stream.Stream;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -14,16 +13,22 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class AuthTest {
 
+    @BeforeEach  //эти команды выполняются перед каждым текстом.
+    //  Before - предусловие, After - постусловие в тесте
+    //BeforeEach - перед каждым тестом, BeforeAll - перед всеми
+    public void setup() {
+        //открыть страницу https://github.com/
+        open("https://github.com/");
+        //кликнуть на кнопку sign in
+        TestPages.mainPage.mainSignInButton().click();
+    }
+
 
     //@ParameterizedTest - позволяет выполнять один и тот же тест несколько раз с разными входными данными
     @Test    //Аннотация теста
     @DisplayName("успешная авторизация")
     public void shouldAuthorizeTest() { //shouldAuthorizeTest- нзвание метода
-        //открыть страницу https://github.com/
-        open("https://github.com/");
-        //кликнуть на кнопку sign in
-        TestPages.mainPage.mainSignInButton().click();
-        //заполнить инпуты логина и пароля, посимвольно
+         //заполнить инпуты логина и пароля, посимвольно
         $("#login_field")
                 .sendKeys("tt998test@gmail.com");
         $("#password")
@@ -41,8 +46,6 @@ public class AuthTest {
     @ParameterizedTest(name = "{displayName} {0}")
     @DisplayName("Авторизация с некорректными данными:")
     public void shoudntAuthorizeTest(String type, String email, String password){
-        open("https://github.com/");
-        mainSignInButton.click();
         $("#login_field")
                 .sendKeys(email);
         $("#password")
