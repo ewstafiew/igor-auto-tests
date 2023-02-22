@@ -14,8 +14,6 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 
 public class AuthTest {
 
-    SelenideElement mainSignInButton = $("[href=\"/login\"]");
-
 
     //@ParameterizedTest - позволяет выполнять один и тот же тест несколько раз с разными входными данными
     @Test    //Аннотация теста
@@ -24,7 +22,7 @@ public class AuthTest {
         //открыть страницу https://github.com/
         open("https://github.com/");
         //кликнуть на кнопку sign in
-        mainSignInButton.click();
+        TestPages.mainPage.mainSignInButton().click();
         //заполнить инпуты логина и пароля, посимвольно
         $("#login_field")
                 .sendKeys("tt998test@gmail.com");
