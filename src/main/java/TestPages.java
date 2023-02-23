@@ -1,9 +1,8 @@
-import pages.MainPage;
+import pages.Junit4Page;
 
 public final class TestPages {
 
-    public static final MainPage mainPage = new MainPage();
-
+    public static final Junit4Page junit4Page = new Junit4Page();
 
     private TestPages() {
 
