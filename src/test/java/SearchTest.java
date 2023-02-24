@@ -31,7 +31,7 @@ public class SearchTest {
 
     @MethodSource("searchByNameAndNumbers")
     @ParameterizedTest(name = "{displayName} {0}")
-    @DisplayName("проверка поиска релизов")
+    @DisplayName("Проверка поиска релизов")
     public void checkingTheReleaseSearch(String type, String searchValue) {
         TestPages.junit4Page.branchSelectionButton()
                 .click();
@@ -51,15 +51,15 @@ public class SearchTest {
     static Stream<Arguments> searchByNameAndNumbers() {
         return Stream.of(
                 arguments(
-                        "поиск по тексту в названии",
+                        "Поиск по тексту в названии",
                         "JUnit"
                 ),
                 arguments(
-                        "поиск по тексту в названии",
+                        "Поиск по тексту в названии",
                         "Beta"
                 ),
                 arguments(
-                        "поиск по цифрам в названии",
+                        "Поиск по цифрам в названии",
                         "4.12"
                 )
         );
