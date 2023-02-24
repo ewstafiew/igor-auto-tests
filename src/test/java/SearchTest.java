@@ -32,7 +32,7 @@ public class SearchTest {
     @MethodSource("searchByNameAndNumbers")
     @ParameterizedTest(name = "{displayName} {0}")
     @DisplayName("проверка поиска релизов")
-    public void checkingTheReleaseSearch(String type, String searchText) {
+    public void checkingTheReleaseSearch(String type, String searchValue) {
         TestPages.junit4Page.branchSelectionButton()
                 .click();
         TestPages.junit4Page.itemFixturesBranch()
@@ -40,11 +40,11 @@ public class SearchTest {
         TestPages.junit4Page.releasesButton()
                 .click();
         TestPages.junit4Page.inputFindByRelease()
-                .sendKeys(searchText);
+                .sendKeys(searchValue);
         TestPages.junit4Page.inputFindByRelease()
                 .pressEnter();
         TestPages.junit4Page.releaseName()
-                .shouldHave(text(searchText));
+                .shouldHave(text(searchValue));
     }
 
 
